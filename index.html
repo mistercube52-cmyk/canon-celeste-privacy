@@ -4,101 +4,481 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Canon Céleste — Politique de confidentialité</title>
+  <meta name="description" content="Politique de confidentialité du jeu mobile Canon Céleste : données stockées sur l'appareil, publicités Google AdMob, classement mondial, droits RGPD.">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="icon-192.png">
   <style>
-    :root { --ink: #1d2340; --muted: #5b6388; --bg: #f4f6ff; --card: #ffffff; --accent: #3a86ff; }
+    :root {
+      --ink: #161a2b;
+      --soft: #5a6180;
+      --line: #e1e5f0;
+      --bg: #f7f8fc;
+      --card: #ffffff;
+      --accent: #2f5fd0;
+      --accent-soft: #eef3ff;
+    }
     @media (prefers-color-scheme: dark) {
-      :root { --ink: #e8ebff; --muted: #a9b0d6; --bg: #0f1330; --card: #1a1f45; --accent: #7fb2ff; }
+      :root {
+        --ink: #e9ecf8; --soft: #a3abc9; --line: #2a3050; --bg: #0e1124;
+        --card: #161b34; --accent: #8db1ff;
+        --accent-soft: #1b2242;
+      }
     }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
-    main { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
-    article { background: var(--card); border-radius: 18px; padding: 20px 20px 8px; margin-bottom: 20px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); }
-    h1 { font-size: 26px; margin: 0 0 4px; }
-    h2 { font-size: 18px; margin: 22px 0 6px; color: var(--accent); }
-    p, li { color: var(--ink); }
-    small { color: var(--muted); }
-    nav { display: flex; gap: 10px; margin-bottom: 16px; }
-    nav a { color: var(--accent); font-weight: 700; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.65 system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      position: sticky; top: 0; z-index: 5;
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px; background: var(--card);
+      border-bottom: 1px solid var(--line);
+    }
+    header img { width: 28px; height: 28px; border-radius: 7px; }
+    header b { font-size: 15px; letter-spacing: 0.2px; }
+    header .sp { flex: 1; }
+    .lang { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .lang button {
+      appearance: none; border: 0; background: transparent; color: var(--soft);
+      font: 600 13px/1 inherit; padding: 8px 12px; cursor: pointer;
+    }
+    .lang button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+    main { max-width: 780px; margin: 0 auto; padding: 28px 16px 56px; }
+    h1 { font-size: 27px; line-height: 1.25; margin: 0 0 6px; letter-spacing: -0.3px; }
+    .meta { color: var(--soft); font-size: 13px; margin: 0 0 22px; }
+    .meta span { white-space: nowrap; }
+    .brief {
+      background: var(--accent-soft); border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px; padding: 14px 16px; margin: 0 0 26px;
+    }
+    .brief p { margin: 0 0 8px; }
+    .brief p:last-child { margin: 0; }
+    nav.toc {
+      border: 1px solid var(--line); border-radius: 10px; background: var(--card);
+      padding: 14px 18px; margin: 0 0 30px;
+    }
+    nav.toc strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--soft); margin-bottom: 8px; }
+    nav.toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 26px; font-size: 14px; }
+    nav.toc li { margin: 2px 0; break-inside: avoid; }
+    a { color: var(--accent); }
+    a:hover { text-decoration: none; }
+    section h2 {
+      font-size: 18px; margin: 30px 0 8px; padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+    section h2 .n { color: var(--accent); font-variant-numeric: tabular-nums; margin-right: 8px; }
+    p, li { margin: 0 0 10px; }
+    ul { padding-left: 20px; }
+    dl { margin: 0 0 10px; }
+    dt { font-weight: 600; margin-top: 10px; }
+    dd { margin: 0 0 0 0; color: var(--ink); }
+    .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; margin: 12px 0 16px; background: var(--card); }
+    table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 14px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: var(--accent-soft); font-weight: 600; white-space: nowrap; }
+    tr:last-child td { border-bottom: 0; }
+    footer {
+      max-width: 780px; margin: 0 auto; padding: 22px 16px 40px;
+      border-top: 1px solid var(--line); color: var(--soft); font-size: 13px;
+    }
+    [hidden] { display: none !important; }
+    main, section { scroll-margin-top: 58px; } /* le bandeau collant ne doit pas manger le titre visé */
+    @media (max-width: 560px) { nav.toc ol { columns: 1; } h1 { font-size: 23px; } }
+    @media print {
+      header, nav.toc, .lang { display: none; }
+      body { background: #fff; color: #000; }
+      main { max-width: none; }
+    }
   </style>
 </head>
 <body>
-<main>
-  <nav><a href="#fr">Français</a><a href="#en">English</a></nav>
 
-  <article id="fr">
-    <h1>Politique de confidentialité — Canon Céleste</h1>
-    <small>Dernière mise à jour : 23 septembre 2026</small>
+<header>
+  <img src="icon-192.png" alt="">
+  <b>Canon Céleste</b>
+  <span class="sp"></span>
+  <div class="lang" role="group" aria-label="Langue / Language">
+    <button type="button" data-lang="fr" aria-pressed="true">Français</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+</header>
 
-    <h2>En bref</h2>
-    <p>Canon Céleste est un jeu hors ligne. Il ne demande aucun compte, aucun nom réel, aucune adresse e-mail,
-    et n'accède ni à ta position, ni à tes contacts, ni à tes photos.</p>
+<!-- ============================ FRANÇAIS ============================ -->
+<main id="fr">
+  <h1>Politique de confidentialité</h1>
+  <p class="meta"><span>Application : <b>Canon Céleste</b></span> · <span>Version 1.0</span> · <span>En vigueur le 23 septembre 2026</span></p>
 
-    <h2>Données enregistrées sur ton téléphone</h2>
-    <p>Ta progression (pièces, diamants, améliorations, cosmétiques, records, réglages, pseudo du classement)
-    est enregistrée uniquement dans la mémoire de l'application, sur ton appareil. Elle n'est envoyée à personne.
-    Désinstaller le jeu l'efface.</p>
+  <div class="brief">
+    <p><b>En résumé.</b> Canon Céleste se joue hors ligne. Le jeu ne demande aucun compte, aucun nom réel,
+    aucune adresse e-mail, et n'accède ni à votre position, ni à vos contacts, ni à vos photos.</p>
+    <p>Deux exceptions, décrites ci-dessous : les <b>publicités</b> affichées par Google AdMob et, si vous
+    y participez, le <b>classement mondial</b> auquel vous envoyez un pseudonyme et une vague atteinte.</p>
+  </div>
 
-    <h2>Publicités (Google AdMob)</h2>
-    <p>Le jeu affiche des publicités fournies par Google AdMob (vidéos récompensées que tu choisis de regarder,
-    et une publicité occasionnelle après une défaite). Pour afficher et mesurer ces publicités, Google peut collecter
-    des informations sur ton appareil, comme l'identifiant publicitaire, l'adresse IP, le modèle de l'appareil
-    et des informations sur les interactions avec les publicités. Ces données sont traitées par Google selon sa
-    propre politique : <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.
-    Tu peux réinitialiser ton identifiant publicitaire ou refuser la personnalisation des annonces dans les réglages
-    Android (Google → Annonces).</p>
+  <nav class="toc">
+    <strong>Sommaire</strong>
+    <ol>
+      <li><a href="#fr-1">Responsable du traitement</a></li>
+      <li><a href="#fr-2">Données conservées sur l'appareil</a></li>
+      <li><a href="#fr-3">Publicités (Google AdMob)</a></li>
+      <li><a href="#fr-4">Classement mondial</a></li>
+      <li><a href="#fr-5">Récapitulatif des traitements</a></li>
+      <li><a href="#fr-6">Autorisations Android</a></li>
+      <li><a href="#fr-7">Enfants</a></li>
+      <li><a href="#fr-8">Transferts hors Union européenne</a></li>
+      <li><a href="#fr-9">Sécurité</a></li>
+      <li><a href="#fr-10">Vos droits</a></li>
+      <li><a href="#fr-11">Modifications</a></li>
+      <li><a href="#fr-12">Contact</a></li>
+    </ol>
+  </nav>
 
-    <h2>Classement en ligne</h2>
-    <p>Si le classement mondial est activé, à la fin d'une partie en mode infini le jeu envoie ton pseudo
-    (celui que tu choisis dans le jeu) et la vague atteinte, pour les afficher dans le classement.
-    Aucune autre information n'est envoyée. Choisis un pseudo qui ne permet pas de t'identifier.</p>
+  <section id="fr-1">
+    <h2><span class="n">1.</span>Responsable du traitement</h2>
+    <p>Canon Céleste est édité par un développeur indépendant, joignable à l'adresse
+    <a href="mailto:mistercube52@gmail.com">mistercube52@gmail.com</a>. Cette adresse est le point de contact
+    unique pour toute question ou demande relative à cette politique et à vos données.</p>
+    <p>La présente politique décrit les données traitées par l'application Android <b>Canon Céleste</b>
+    (identifiant <code>fr.canonceleste.app</code>) distribuée sur Google Play.</p>
+  </section>
 
-    <h2>Enfants</h2>
-    <p>Le jeu ne collecte volontairement aucune donnée personnelle auprès des enfants. Les publicités sont fournies
-    par Google AdMob, qui applique ses propres règles pour les jeunes utilisateurs.</p>
+  <section id="fr-2">
+    <h2><span class="n">2.</span>Données conservées sur l'appareil</h2>
+    <p>Votre progression est enregistrée <b>uniquement dans la mémoire de l'application, sur votre appareil</b> :
+    pièces et diamants, améliorations, cosmétiques possédés, records, réglages (langue, son, vibrations)
+    et le pseudonyme que vous choisissez pour le classement.</p>
+    <p>Ces informations ne sont transmises à personne et ne quittent pas le téléphone. Désinstaller le jeu
+    les efface définitivement.</p>
+  </section>
 
-    <h2>Tes droits</h2>
-    <p>Tu peux effacer toutes tes données du jeu en le désinstallant. Pour faire retirer un pseudo du classement,
-    ou pour toute question, écris à : <b>mistercube52@gmail.com</b>.</p>
+  <section id="fr-3">
+    <h2><span class="n">3.</span>Publicités (Google AdMob)</h2>
+    <p>Le jeu affiche des publicités fournies par <b>Google AdMob</b> : des vidéos récompensées que vous choisissez
+    de regarder, et une publicité occasionnelle après une défaite. Aucune publicité n'est affichée en dehors de
+    ces deux cas.</p>
+    <p>Pour diffuser et mesurer ces annonces, Google peut collecter des informations relatives à votre appareil :
+    identifiant publicitaire, adresse IP, modèle et version du système, ainsi que les interactions avec les
+    publicités. Google agit ici comme responsable de traitement indépendant ; ces données sont régies par sa
+    propre politique : <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+    <p>Dans les pays où la loi l'exige (Union européenne, Royaume-Uni, Suisse), un <b>écran de consentement</b>
+    Google est affiché au premier lancement : vous y choisissez d'accepter ou de refuser les annonces
+    personnalisées. Votre choix est mémorisé et peut être modifié à tout moment depuis les réglages Android
+    (<i>Google → Annonces</i>), où vous pouvez également réinitialiser ou supprimer votre identifiant publicitaire.</p>
+  </section>
 
-    <h2>Modifications</h2>
-    <p>Cette politique peut évoluer avec le jeu. La date de mise à jour en haut de la page indique sa dernière version.</p>
-  </article>
+  <section id="fr-4">
+    <h2><span class="n">4.</span>Classement mondial</h2>
+    <p>Le mode infini propose un classement mondial. Lorsqu'une partie se termine, le jeu envoie
+    <b>deux informations et deux seulement</b> : le pseudonyme que vous avez saisi et le numéro de la vague
+    atteinte. Aucun identifiant d'appareil, aucun compte, aucune adresse e-mail n'accompagne cet envoi.</p>
+    <p>Ces scores sont hébergés chez <b>Supabase Inc.</b>, qui agit comme sous-traitant, et sont conservés
+    jusqu'à ce que vous en demandiez la suppression (voir la section&nbsp;10).</p>
+    <p>Le pseudonyme est libre : choisissez-en un qui ne permet pas de vous identifier. La base légale de ce
+    traitement est votre consentement, matérialisé par l'envoi volontaire de votre score.</p>
+  </section>
 
-  <article id="en">
-    <h1>Privacy policy — Canon Céleste</h1>
-    <small>Last updated: September 23, 2026</small>
+  <section id="fr-5">
+    <h2><span class="n">5.</span>Récapitulatif des traitements</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Donnée</th><th>Finalité</th><th>Base légale</th><th>Destinataire</th><th>Conservation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Progression et réglages</td>
+            <td>Faire fonctionner le jeu</td>
+            <td>Exécution du service</td>
+            <td>Personne (local)</td>
+            <td>Jusqu'à la désinstallation</td>
+          </tr>
+          <tr>
+            <td>Identifiant publicitaire, adresse IP, données techniques</td>
+            <td>Afficher et mesurer les publicités</td>
+            <td>Consentement (annonces personnalisées) ou intérêt légitime (annonces non personnalisées)</td>
+            <td>Google AdMob</td>
+            <td>Selon la politique de Google</td>
+          </tr>
+          <tr>
+            <td>Pseudonyme et vague atteinte</td>
+            <td>Afficher le classement mondial</td>
+            <td>Consentement</td>
+            <td>Supabase (hébergeur)</td>
+            <td>Jusqu'à demande de suppression</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-    <h2>In short</h2>
-    <p>Canon Céleste is an offline game. It asks for no account, no real name and no e-mail address,
-    and it does not access your location, contacts or photos.</p>
+  <section id="fr-6">
+    <h2><span class="n">6.</span>Autorisations Android</h2>
+    <dl>
+      <dt>Internet</dt>
+      <dd>Nécessaire aux publicités et à l'envoi des scores du classement. Sans connexion, le jeu reste
+      entièrement jouable.</dd>
+      <dt>Vibreur</dt>
+      <dd>Retour haptique lors des tirs et des impacts ; désactivable dans les réglages du jeu.</dd>
+      <dt>Identifiant publicitaire</dt>
+      <dd>Déclaré par le kit publicitaire de Google, utilisé uniquement par AdMob.</dd>
+    </dl>
+    <p>Le jeu ne demande <b>aucune</b> autorisation de localisation, de caméra, de microphone, de contacts,
+    de fichiers ou de stockage externe.</p>
+  </section>
 
-    <h2>Data stored on your phone</h2>
-    <p>Your progress (coins, gems, upgrades, cosmetics, records, settings, leaderboard nickname) is stored only
-    in the app's storage on your device. It is not sent to anyone. Uninstalling the game deletes it.</p>
+  <section id="fr-7">
+    <h2><span class="n">7.</span>Enfants</h2>
+    <p>Canon Céleste ne s'adresse pas spécifiquement aux enfants et ne collecte sciemment aucune donnée
+    personnelle auprès d'eux. Les publicités sont diffusées par Google AdMob, qui applique ses propres règles
+    de protection des jeunes utilisateurs. Si vous êtes le parent ou le tuteur d'un enfant et pensez qu'une
+    donnée le concernant nous a été transmise (par exemple un pseudonyme identifiant dans le classement),
+    écrivez-nous : elle sera supprimée.</p>
+  </section>
 
-    <h2>Ads (Google AdMob)</h2>
-    <p>The game shows ads provided by Google AdMob (rewarded videos you choose to watch, and an occasional ad after
-    a defeat). To serve and measure these ads, Google may collect information about your device such as the
-    advertising ID, IP address, device model and ad interactions. Google processes this data under its own policy:
-    <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. You can reset your advertising ID
-    or opt out of ad personalization in your Android settings (Google → Ads).</p>
+  <section id="fr-8">
+    <h2><span class="n">8.</span>Transferts hors Union européenne</h2>
+    <p>Google et Supabase sont des sociétés établies aux États-Unis et peuvent traiter les données décrites
+    ci-dessus en dehors de l'Union européenne. Ces transferts sont encadrés par les mécanismes prévus au
+    chapitre V du RGPD, notamment les clauses contractuelles types de la Commission européenne et, pour Google,
+    le cadre de protection des données UE–États-Unis.</p>
+  </section>
 
-    <h2>Online leaderboard</h2>
-    <p>If the world leaderboard is enabled, at the end of an endless-mode game the app sends your nickname
-    (the one you choose in the game) and the wave you reached, to show them on the leaderboard.
-    Nothing else is sent. Please choose a nickname that does not identify you.</p>
+  <section id="fr-9">
+    <h2><span class="n">9.</span>Sécurité</h2>
+    <p>Les échanges avec le classement se font en HTTPS. Le jeu n'enregistre aucun mot de passe et ne dispose
+    d'aucun compte utilisateur : il n'y a donc aucun identifiant à dérober. Les données locales sont protégées
+    par l'isolation des applications Android.</p>
+  </section>
 
-    <h2>Children</h2>
-    <p>The game does not knowingly collect personal data from children. Ads are provided by Google AdMob,
-    which applies its own rules for young users.</p>
+  <section id="fr-10">
+    <h2><span class="n">10.</span>Vos droits</h2>
+    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation
+    et d'opposition, ainsi que du droit de retirer votre consentement à tout moment.</p>
+    <ul>
+      <li><b>Données locales :</b> désinstaller le jeu les efface intégralement.</li>
+      <li><b>Classement :</b> écrivez à <a href="mailto:mistercube52@gmail.com">mistercube52@gmail.com</a> en
+      indiquant le pseudonyme concerné ; la ligne est supprimée sous 30 jours.</li>
+      <li><b>Publicités :</b> modifiez votre choix dans <i>Réglages Android → Google → Annonces</i>.</li>
+    </ul>
+    <p>Vous pouvez également introduire une réclamation auprès de la CNIL
+    (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>) ou de l'autorité de protection
+    des données de votre pays.</p>
+  </section>
 
-    <h2>Your rights</h2>
-    <p>You can delete all your game data by uninstalling the game. To have a nickname removed from the leaderboard,
-    or for any question, contact: <b>mistercube52@gmail.com</b>.</p>
+  <section id="fr-11">
+    <h2><span class="n">11.</span>Modifications</h2>
+    <p>Cette politique peut évoluer avec le jeu. Toute modification est publiée sur cette page, avec une nouvelle
+    date d'entrée en vigueur en haut du document. Les changements substantiels seront signalés dans les notes de
+    version sur Google Play.</p>
+  </section>
 
-    <h2>Changes</h2>
-    <p>This policy may change as the game evolves. The date at the top shows the latest version.</p>
-  </article>
+  <section id="fr-12">
+    <h2><span class="n">12.</span>Contact</h2>
+    <p>Pour toute question, demande d'exercice de vos droits ou signalement :
+    <a href="mailto:mistercube52@gmail.com">mistercube52@gmail.com</a>. Nous répondons sous 30 jours.</p>
+  </section>
 </main>
+
+<!-- ============================= ENGLISH ============================= -->
+<main id="en" hidden>
+  <h1>Privacy Policy</h1>
+  <p class="meta"><span>Application: <b>Canon Céleste</b></span> · <span>Version 1.0</span> · <span>Effective September 23, 2026</span></p>
+
+  <div class="brief">
+    <p><b>In short.</b> Canon Céleste is played offline. The game asks for no account, no real name and no
+    e-mail address, and it does not access your location, contacts or photos.</p>
+    <p>Two exceptions, described below: the <b>ads</b> served by Google AdMob and, if you take part in it, the
+    <b>world leaderboard</b>, to which you send a nickname and the wave you reached.</p>
+  </div>
+
+  <nav class="toc">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#en-1">Data controller</a></li>
+      <li><a href="#en-2">Data stored on your device</a></li>
+      <li><a href="#en-3">Ads (Google AdMob)</a></li>
+      <li><a href="#en-4">World leaderboard</a></li>
+      <li><a href="#en-5">Processing summary</a></li>
+      <li><a href="#en-6">Android permissions</a></li>
+      <li><a href="#en-7">Children</a></li>
+      <li><a href="#en-8">Transfers outside the EU</a></li>
+      <li><a href="#en-9">Security</a></li>
+      <li><a href="#en-10">Your rights</a></li>
+      <li><a href="#en-11">Changes</a></li>
+      <li><a href="#en-12">Contact</a></li>
+    </ol>
+  </nav>
+
+  <section id="en-1">
+    <h2><span class="n">1.</span>Data controller</h2>
+    <p>Canon Céleste is published by an independent developer, reachable at
+    <a href="mailto:mistercube52@gmail.com">mistercube52@gmail.com</a>. That address is the single point of
+    contact for any question or request concerning this policy and your data.</p>
+    <p>This policy covers the Android application <b>Canon Céleste</b> (package <code>fr.canonceleste.app</code>)
+    distributed on Google Play.</p>
+  </section>
+
+  <section id="en-2">
+    <h2><span class="n">2.</span>Data stored on your device</h2>
+    <p>Your progress is stored <b>only in the app's own storage, on your device</b>: coins and gems, upgrades,
+    owned cosmetics, records, settings (language, sound, vibration) and the nickname you choose for the
+    leaderboard.</p>
+    <p>This information is not sent to anyone and never leaves the phone. Uninstalling the game deletes it
+    permanently.</p>
+  </section>
+
+  <section id="en-3">
+    <h2><span class="n">3.</span>Ads (Google AdMob)</h2>
+    <p>The game shows ads served by <b>Google AdMob</b>: rewarded videos you choose to watch, and an occasional
+    ad after a defeat. No ads are shown outside these two cases.</p>
+    <p>To serve and measure these ads, Google may collect information about your device: advertising ID,
+    IP address, device model and OS version, and ad interactions. Google acts here as an independent controller;
+    this data is governed by its own policy:
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+    <p>Where the law requires it (European Union, United Kingdom, Switzerland), a Google <b>consent screen</b>
+    is displayed on first launch, where you accept or decline personalised ads. Your choice is remembered and can
+    be changed at any time in your Android settings (<i>Google → Ads</i>), where you can also reset or delete
+    your advertising ID.</p>
+  </section>
+
+  <section id="en-4">
+    <h2><span class="n">4.</span>World leaderboard</h2>
+    <p>Endless mode features a world leaderboard. When a run ends, the game sends <b>two pieces of information
+    and nothing else</b>: the nickname you typed and the wave number you reached. No device identifier, no
+    account and no e-mail address is attached to that submission.</p>
+    <p>These scores are hosted by <b>Supabase Inc.</b>, acting as a processor, and are kept until you ask for
+    their deletion (see section&nbsp;10).</p>
+    <p>The nickname is free-form: please choose one that does not identify you. The legal basis for this
+    processing is your consent, given by voluntarily submitting your score.</p>
+  </section>
+
+  <section id="en-5">
+    <h2><span class="n">5.</span>Processing summary</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Purpose</th><th>Legal basis</th><th>Recipient</th><th>Retention</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Progress and settings</td>
+            <td>Running the game</td>
+            <td>Performance of the service</td>
+            <td>Nobody (local)</td>
+            <td>Until uninstall</td>
+          </tr>
+          <tr>
+            <td>Advertising ID, IP address, technical data</td>
+            <td>Serving and measuring ads</td>
+            <td>Consent (personalised ads) or legitimate interest (non-personalised ads)</td>
+            <td>Google AdMob</td>
+            <td>Per Google's policy</td>
+          </tr>
+          <tr>
+            <td>Nickname and wave reached</td>
+            <td>Displaying the world leaderboard</td>
+            <td>Consent</td>
+            <td>Supabase (host)</td>
+            <td>Until deletion is requested</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="en-6">
+    <h2><span class="n">6.</span>Android permissions</h2>
+    <dl>
+      <dt>Internet</dt>
+      <dd>Required for ads and for submitting leaderboard scores. Without a connection the game remains fully
+      playable.</dd>
+      <dt>Vibrate</dt>
+      <dd>Haptic feedback on shots and impacts; can be turned off in the game settings.</dd>
+      <dt>Advertising ID</dt>
+      <dd>Declared by Google's ads SDK and used by AdMob only.</dd>
+    </dl>
+    <p>The game requests <b>no</b> location, camera, microphone, contacts, files or external storage
+    permission.</p>
+  </section>
+
+  <section id="en-7">
+    <h2><span class="n">7.</span>Children</h2>
+    <p>Canon Céleste is not specifically directed at children and does not knowingly collect personal data from
+    them. Ads are served by Google AdMob, which applies its own rules for young users. If you are a parent or
+    guardian and believe data about your child reached us (for example an identifying nickname on the
+    leaderboard), write to us and it will be deleted.</p>
+  </section>
+
+  <section id="en-8">
+    <h2><span class="n">8.</span>Transfers outside the EU</h2>
+    <p>Google and Supabase are US-based companies and may process the data described above outside the European
+    Union. Such transfers rely on the mechanisms of Chapter V of the GDPR, in particular the European
+    Commission's standard contractual clauses and, for Google, the EU–US Data Privacy Framework.</p>
+  </section>
+
+  <section id="en-9">
+    <h2><span class="n">9.</span>Security</h2>
+    <p>Leaderboard traffic uses HTTPS. The game stores no password and has no user accounts, so there are no
+    credentials to steal. Local data is protected by Android's application sandbox.</p>
+  </section>
+
+  <section id="en-10">
+    <h2><span class="n">10.</span>Your rights</h2>
+    <p>Under the GDPR you have the right to access, rectify, erase, restrict and object to the processing of your
+    data, and to withdraw your consent at any time.</p>
+    <ul>
+      <li><b>Local data:</b> uninstalling the game erases all of it.</li>
+      <li><b>Leaderboard:</b> write to <a href="mailto:mistercube52@gmail.com">mistercube52@gmail.com</a> with
+      the nickname concerned; the entry is removed within 30 days.</li>
+      <li><b>Ads:</b> change your choice in <i>Android Settings → Google → Ads</i>.</li>
+    </ul>
+    <p>You may also lodge a complaint with the French CNIL
+    (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>) or with the data protection
+    authority of your country.</p>
+  </section>
+
+  <section id="en-11">
+    <h2><span class="n">11.</span>Changes</h2>
+    <p>This policy may change as the game evolves. Any change is published on this page with a new effective date
+    at the top of the document. Substantial changes will be mentioned in the release notes on Google Play.</p>
+  </section>
+
+  <section id="en-12">
+    <h2><span class="n">12.</span>Contact</h2>
+    <p>For any question, rights request or report: <a href="mailto:mistercube52@gmail.com">mistercube52@gmail.com</a>.
+    We answer within 30 days.</p>
+  </section>
+</main>
+
+<footer>
+  <p id="foot-fr">Canon Céleste — jeu mobile indépendant. Contact : <a href="mailto:mistercube52@gmail.com">mistercube52@gmail.com</a>.</p>
+  <p id="foot-en" hidden>Canon Céleste — independent mobile game. Contact: <a href="mailto:mistercube52@gmail.com">mistercube52@gmail.com</a>.</p>
+</footer>
+
+<script>
+  // Le jeu ouvre cette page avec #fr ou #en ; les ancres de sommaire (#fr-3…) fixent aussi la langue.
+  const setLang = lang => {
+    document.documentElement.lang = lang;
+    document.getElementById('fr').hidden = lang !== 'fr';
+    document.getElementById('en').hidden = lang !== 'en';
+    document.getElementById('foot-fr').hidden = lang !== 'fr';
+    document.getElementById('foot-en').hidden = lang !== 'en';
+    for (const b of document.querySelectorAll('.lang button')) b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+  };
+  const fromHash = () => (location.hash.slice(1).startsWith('en') ? 'en' : location.hash.slice(1).startsWith('fr') ? 'fr' : null);
+  // À défaut d'indication, on suit la langue du navigateur : français pour les francophones, anglais sinon.
+  setLang(fromHash() || ((navigator.language || 'en').toLowerCase().startsWith('fr') ? 'fr' : 'en'));
+  // #fr / #en ne sert qu'à choisir la langue : on reste en haut du document.
+  if (/^#(fr|en)$/.test(location.hash)) scrollTo(0, 0);
+  addEventListener('hashchange', () => { const l = fromHash(); if (l) setLang(l); });
+  for (const b of document.querySelectorAll('.lang button')) {
+    b.addEventListener('click', () => { location.hash = b.dataset.lang; setLang(b.dataset.lang); scrollTo(0, 0); });
+  }
+</script>
 </body>
 </html>
